@@ -9,22 +9,19 @@ test.beforeEach(async ({ page }) => {
     await page.locator('#login_button').click();
 });
 
-test('Redirect to Print Screen', async({ page })=> {
+test('Displays the Yamaha Dealers Net Logo', async({ page })=> {
     //#region STEPS
     await page.goto('/dealer-info/idm_user/menu.php');
     await page.locator('a[href="./search.php"]').click();
     await page.locator(`input[onclick*="refer.php?id=${ID}"]`).click();
-    await page.locator(`input[onclick*="detail.php?no=1&id=${ID}"]`).click();
-
-    const [new_page] = await Promise.all([
-        page.waitForEvent('popup'),
-        page.locator('input[onclick*="edit_print.php?no=1&id=111034005001"]').click()
-    ]);
-    await new_page.waitForLoadState('load');
+    await page.locator(`input[onclick*="delete_system_input.php?id=${ID}"]`).click();
     //#endregion
 
     //#region ASSERTIONS
-    expect(new_page.url()).toContain(`edit_print.php`);
-    expect(new_page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/edit_print.php?no=1&id=${ID}`);
+    // Dealer ID
+    expect(page.url()).toContain(`delete_system_input.php`);
+    expect(page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/delete_system_input.php?id=${ID}`);
+    await expect(page.getByRole('cell', { name: '特約店：111034 [ワイピービデオ（株）]' })).toBeVisible();
+    await expect(page.locator('#hdr')).toContainText('特約店：111034 [ワイピービデオ（株）]');
     //#endregion
 });
