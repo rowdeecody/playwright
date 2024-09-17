@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
     await page.locator('#login_button').click();
 });
 
-test('Displays User Information System Usage Item Deletion Request page', async({ page })=> {
+test('Displays User Information System Usage Item Deletion Request Page', async({ page })=> {
     //#region STEPS
     await page.goto('/dealer-info/idm_user/menu.php');
     await page.locator('a[href="./search.php"]').click();
