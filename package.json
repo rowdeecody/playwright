@@ -1,0 +1,23 @@
+{
+  "name": "playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "tsc --incremental -p tests/tsconfig.json",
+    "test": "playwright test -c tests-out",
+    "test-agent": "npx playwright test agent/YDN9-51 --headed",
+    "test-agent-1": "npx playwright test 37_AGENT_UC005_TC005.spec.ts --headed",
+    "test-codegen": "npx playwright codegen"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.46.1",
+    "@types/node": "^22.5.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
