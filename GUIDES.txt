@@ -1,0 +1,33 @@
+VS Extension
+- Playwright Test for VSCode
+
+- npm init playwright@latest
+- typescript
+- tests folder
+- npm install dotenv --save
+
+
+- npx playwright test
+- npx playwright test --headed
+- npx playwright show-report
+- npx playwright test display_contract_selection.spec.ts --headed
+- npx playwright test --ui
+- npx playwright test --project webkit
+- npx playwright test --project webkit --project firefox
+- npx playwright test --last-failed
+
+Sample functions
+- await page.goto('https://playwright.dev/');
+- await expect(page).toHaveTitle(/Playwright/);
+- await page.getByRole('link', { name: 'Get started' }).click();
+- await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+-  npx playwright codegen demo.playwright.dev/todomvc
+- npx playwright codegen http://localhost:5002/dealer-info/login.php
+
+
+ASSERTIONS
+- https://playwright.dev/docs/test-assertions
+
+
+GIT GUIDES
+- git rm --cached .env
