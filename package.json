@@ -6,7 +6,7 @@
     "pretest": "tsc --incremental -p tests/tsconfig.json",
     "test": "playwright test -c tests-out",
     "test-agent": "npx playwright test agent/YDN9-51 --headed",
-    "test-agent-1": "npx playwright test 37_AGENT_UC011_TC011.spec.ts --headed",
+    "test-agent-1": "npx playwright test 37_AGENT_UC012_TC012.spec.ts --headed",
     "test-codegen": "npx playwright codegen"
   },
   "keywords": [],
