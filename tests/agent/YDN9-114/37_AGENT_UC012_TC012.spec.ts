@@ -9,7 +9,7 @@ test.beforeEach(async ({ page }) => {
     await page.locator('#login_button').click();
 });
 
-test('Redirect to User Information System Usage Item Deletion Request Page', async({ page })=> {
+test('Displays the Yamaha Dealers Net Logo', async({ page })=> {
     //#region STEPS
     await page.goto('/dealer-info/idm_user/menu.php');
     await page.locator('a[href="./search.php"]').click();
