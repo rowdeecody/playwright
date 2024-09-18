@@ -9,20 +9,18 @@ test.beforeEach(async ({ page }) => {
     await page.locator('#login_button').click();
 });
 
-test('Redirect to User Information Details Screen', async({ page })=> {
+test('Redirect to User Information System Usage Item Deletion Request Page', async({ page })=> {
     //#region STEPS
     await page.goto('/dealer-info/idm_user/menu.php');
     await page.locator('a[href="./search.php"]').click();
     await page.locator(`input[onclick*="refer.php?id=${ID}"]`).click();
     await page.locator(`input[onclick*="delete_system_input.php?id=${ID}"]`).click();
-
-    // Current page detail.php
-    expect(page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/delete_system_input.php?id=${ID}`);
-    await page.locator(`input[onclick*="refer.php?id=${ID}"]`).click();
+    await page.locator('input[name="keyboard"]').check();
+    await page.getByRole('button', { name: '入力内容を確認する' }).click();
     //#endregion
 
     //#region ASSERTIONS
-    // Current page refer.php
-    expect(page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/refer.php?id=${ID}`);
+    expect(page.url()).toContain('delete_system_confirm.php');
+    expect(page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/delete_system_confirm.php`);
     //#endregion
 });

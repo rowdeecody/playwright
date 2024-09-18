@@ -16,7 +16,7 @@ test('Redirect to User Information Details Screen', async({ page })=> {
     await page.locator(`input[onclick*="refer.php?id=${ID}"]`).click();
     await page.locator(`input[onclick*="delete_system_input.php?id=${ID}"]`).click();
 
-    // Current page detail.php
+    // Current page delete_system_input.php
     expect(page.url()).toBe(`${process.env.BASEURL}/dealer-info/idm_user/delete_system_input.php?id=${ID}`);
     await page.locator(`input[onclick*="refer.php?id=${ID}"]`).click();
     //#endregion
